@@ -15,12 +15,33 @@ It has two data folders: 685 images of training set and 170 images of validation
 For the training, I used Adam optimizer with the learning rate = 1e-4. For the activation function, I tried both tanh and relu for the comparison. I used both MSE loss and PSNR (peak signal-to-noise ratio) for performance metric. PSNR naively represents how similar the model output is compared to the ground truth, measured in dB scale. 
 
 ## Test 
-After the training, I made test_video.py, which basically applies super resolution to low-resoltuion video.
+After the training, I made test_video.py, which basically applies super resolution to low-resoltuion video. Opencv library provides "*VideoCapture*" and "*VideoWriter*", which basically decomposes an input video into individual frames and save video files with the trained ESPCN model output of those frames. 
 
 ## Results
-With 20 Epoch for the training, below is the MSE error and PSNR with respect to each epoch, for both training and validation.
+With 20 Epoch for the training, below is the MSE error and PSNR with respect to each epoch, for both training and validation. With my custom data, ESPCN with ReLU activation layer gives a better PSNR than Tanh layer. 
 Below is the result with ReLU activation layer:
+| Activation     | PSNR (dB) |
+| ---  | :---:  |
+| ReLU | 23.579 |
+| Tanh | 23.332 |
+
 ![relu](https://user-images.githubusercontent.com/82307352/168479217-2dcfa068-f040-4f37-9b76-0b3023798d9f.png)
 
 Below is the result with tanh activation layer:
 ![tanh](https://user-images.githubusercontent.com/82307352/168479287-818dc324-772a-47f1-97e7-5e549d95c19c.jpg)
+
+For video test, I used a low-resolution, concert live video from one of my favorite singers in South Korea, Moon Sae Lee. Here is the Youtube link of the video: https://www.youtube.com/watch?v=t1qq60p8rz8
+
+Below is the comparison between original youtube video and result video with our train ESPCN:
+| Original | Result |
+| :---:  | :---:  |
+| ![test_](https://user-images.githubusercontent.com/82307352/168539674-147e64e2-5a71-4063-8952-f133903adae7.gif)|![test_result](https://user-images.githubusercontent.com/82307352/168539455-42904b21-2fd4-462e-ab0c-7efe63b14616.gif)|
+
+It is bit unclear to notice the improvements from above sample, but there are some frames that seemed to be improved with ESPCN:
+![그림1](https://user-images.githubusercontent.com/82307352/168540595-5c8db63c-f1be-4441-967e-d6e3ba3f615d.jpg)
+
+Here, we can see that: while the original video seems to be more gritty, rough, and unnecessarily glossy, the result video is somewhat smooth and seemed to be more natural. 
+
+
+
+
