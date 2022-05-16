@@ -4,12 +4,12 @@
 
 
 ## Introduction
-ESPCN directly uses low-resolution (LR) image as an input and is upscaled at the very last stage of the architecture through "sub-pixel" convolution layer. Basically, it is an interpolation of LR image with trained, previous feature maps **(See above figure for the better intuition)**. Unlike SRCNN, ESPCN does not require the LR image to be upsampled before putting it into the input layer. In terms of computation complexity and memory cost, it is beneficial since the model does not need to apply the CNN directly to the upsampled LR image. 
+ESPCN directly uses low-resolution (LR) image as an input and is upscaled at the very last stage of the architecture through "sub-pixel" convolution layer. Basically, it is an interpolation of LR image with trained, previous feature maps which is called "sub-pixel CNN" **(See above figure for the better intuition)**. Unlike SRCNN, ESPCN does not require the LR image to be upsampled before putting it into the input layer. In terms of computation complexity and memory cost, it is beneficial since the model does not need to apply the CNN directly to the upsampled LR image. 
 
 ## Dataset
 Custom training dataset was obtained from the below link from kaggle:
 https://www.kaggle.com/datasets/saputrahas/dataset-image-super-resolution
-It has two data folders: 685 images of training set and 170 images of validation set. Due to lack of training and validation set for a proper model training, and due to **dataset subsampling**(the author uses 91-images dataset and run data augmentation to make sub-images for the training set) mentioned in the paper, I made *Data_augmentation.py*, which is random cropping data augmentation code. This enabled me to train the model with 6850 sub images and validate with 1700 sub-images. 
+It has two data folders: 685 images of training set and 170 images of validation set. Due to lack of training and validation set for a proper model training, and due to **dataset subsampling**(the author uses 91-images dataset and run data augmentation to make sub-images for the training set) mentioned in the paper, I made *Data_augmentation.py*, which is random cropping data augmentation code. This enabled me to train the model with 6850 sub images and validate with 1700 sub-images. With this data-augmented training set, I made LR images with upscale factor = 3 and bicubic downsampling. 
 
 ## Train
 For the training, I used Adam optimizer with the learning rate = 1e-4. For the activation function, I tried both tanh and relu for the comparison. I used both MSE loss and PSNR (peak signal-to-noise ratio) for performance metric. PSNR naively represents how similar the model output is compared to the ground truth, measured in dB scale. 
