@@ -33,9 +33,9 @@ Below is the result with tanh activation layer:
 For video test, I used a low-resolution, concert live video from one of my favorite singers in South Korea, Moon Sae Lee. Here is the Youtube link of the video: https://www.youtube.com/watch?v=t1qq60p8rz8
 
 Below is the comparison between original youtube video and result video with our custom - trained ESPCN:
-| Original | Result |
+| Result | Original |
 | :---:  | :---:  |
-| ![test_](https://user-images.githubusercontent.com/82307352/168539674-147e64e2-5a71-4063-8952-f133903adae7.gif)|![test_result](https://user-images.githubusercontent.com/82307352/168539455-42904b21-2fd4-462e-ab0c-7efe63b14616.gif)|
+|![test_result](https://user-images.githubusercontent.com/82307352/168539455-42904b21-2fd4-462e-ab0c-7efe63b14616.gif)|![test_](https://user-images.githubusercontent.com/82307352/168539674-147e64e2-5a71-4063-8952-f133903adae7.gif)|
 
 It is bit unclear to notice the improvements from above sample, but there are some frames that seemed to be improved with ESPCN:
 ![그림1](https://user-images.githubusercontent.com/82307352/168540595-5c8db63c-f1be-4441-967e-d6e3ba3f615d.jpg)
