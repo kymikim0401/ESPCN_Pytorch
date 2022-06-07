@@ -37,8 +37,9 @@ Below is the comparison between original youtube video and result video with our
 | :---:  | :---:  |
 |![test_result](https://user-images.githubusercontent.com/82307352/168539455-42904b21-2fd4-462e-ab0c-7efe63b14616.gif)|![test_](https://user-images.githubusercontent.com/82307352/168539674-147e64e2-5a71-4063-8952-f133903adae7.gif)|
 
-It is bit unclear to notice the improvements from above sample, but there are some frames that seemed to be improved with ESPCN:
+It is bit unclear to notice the improvements from above sample since only Y channel has been trained. In order to fully apply the super resolution, all 3 RGB channels should be trained and used. However, there are some frames that seemed to be improved with ESPCN:
 ![그림1](https://user-images.githubusercontent.com/82307352/168540595-5c8db63c-f1be-4441-967e-d6e3ba3f615d.jpg)
+
 
 Here, we can see that: while the original video seems to be more gritty, rough, and unnecessarily glossy, the result video is somewhat smooth, vivid, seemed to be more natural. 
 
